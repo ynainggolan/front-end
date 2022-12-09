@@ -16,14 +16,14 @@ export const fetchAllEmployeesThunk = () => async (dispatch) => {
     }
 };
 
-//Single instructor
+//Single employee
 export const fetchEmployeeThunk = (id) => async (dispatch) => {
     // thunk creator would not an be async function 
     // if using Promise.then:
     // return axios
     //   .get(`${path}/api/employees/${id}`)
     //   .then((res) => res.data)
-    //   .then((instructor) => dispatch(ac.fetchEmployee(employee)))
+    //   .then((employee) => dispatch(ac.fetchEmployee(employee)))
     //   .catch((err) => console.log(err));
     try {
       let res = await axios.get(`${path}/employees/${id}`);
@@ -45,7 +45,7 @@ export const fetchAllTasksThunk = () => async (dispatch) => {
 
 //Add task
 export const addTaskThunk = (task) => async (dispatch) => {
-    // course = { title: "Pitch" }
+    // task = { title: "Pitch" }
     try {
       let res = await axios.post(`${path}/tasks`, task);
       dispatch(ac.addTask(res.data));
@@ -71,7 +71,7 @@ export const editTaskThunk = task => async dispatch => {
     try {
       let res = await axios.put(`${path}/tasks/${task.id}`, task);
       //res.data is the updated task object
-      dispatch(ac.editCourse(res.data));
+      dispatch(ac.editTask(res.data));
     } catch(err) {
       console.error(err);
     }
