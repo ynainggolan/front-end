@@ -10,21 +10,21 @@ import { EmployeeView } from "../views";
 
 class EmployeeContainer extends Component {
     componentDidMount() {
-        //getting employee ID from url
-        this.props.fetchEmployee(this.props.match.params.id);
-        this.props.fetchTasks();
+      //getting instructor ID from url
+      this.props.fetchEmployee(this.props.match.params.id);
+      this.props.fetchTasks();
     }
-
+  
     render() {
-        return {
-            <EmployeeView 
-                employee={this.props.employee}
-                editTask={this.props.editTask}
-                allTasks={this.props.allTasks}
-            />
-        };
+      return (
+        <EmployeeView 
+          employee={this.props.employee}
+          editTask={this.props.editTask}
+          allTasks={this.props.allTasks}
+        />
+      );
     }
-}
+  }
 
 // map state to props
 const mapState = (state) => {
