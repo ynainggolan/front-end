@@ -29,6 +29,14 @@ export const fetchAllTasks = (tasks) => {
     };
 };
 
+//Single task
+export const fetchTask = (task) => {
+    return {
+        type: at.FETCH_TASK,
+        payload: task,
+    };
+};
+
 //Add task
 export const addTask = (task) => {
     return {
@@ -49,14 +57,6 @@ export const deleteTask = (task) => {
 export const editTask = (task) => {
     return {
         type: at.EDIT_TASK,
-        payload: task,
-    };
-};
-
-//Single task
-export const fetchTask = (task) => {
-    return {
-        type: at.FETCH_TASK,
         payload: task,
     };
 };
