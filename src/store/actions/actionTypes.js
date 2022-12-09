@@ -1,7 +1,7 @@
 // ACTION TYPES;
 
 //All Employee
-export const FETCH_ALL_EMPLOYEE = "FETCH_ALL_EMPLOYEE";
+export const FETCH_ALL_EMPLOYEES = "FETCH_ALL_EMPLOYEES";
 
 //Single Employee
 export const FETCH_EMPLOYEE = "FETCH_EMPLOYEE";
