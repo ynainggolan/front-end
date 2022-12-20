@@ -45,7 +45,7 @@ export const fetchAllTasksThunk = () => async (dispatch) => {
 
 //Add task
 export const addTaskThunk = (task) => async (dispatch) => {
-    // task = { title: "Pitch" }
+    // task = { description: "Pitch" }
     try {
       let res = await axios.post(`${path}/tasks`, task);
       dispatch(ac.addTask(res.data));
