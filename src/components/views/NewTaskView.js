@@ -4,7 +4,7 @@ const NewTaskView = (props) => {
     return (
       <div className="root">
         <div className="formContainer">
-          <div className="formTitle">
+          <div className="formDescription">
             <h2 style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
               New Task
             </h2>
@@ -15,8 +15,8 @@ const NewTaskView = (props) => {
             <br/>
             <br/>
   
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Priority Level: </label>
-            <input type="text" name="priorityLevel" onChange={(e) => handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>
+            <input type="text" name="completionStatus" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
   
@@ -38,4 +38,4 @@ const NewTaskView = (props) => {
     )
   }
   
-  export default NewCourseView;
+  export default NewTaskView;
