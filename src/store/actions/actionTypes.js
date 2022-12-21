@@ -1,16 +1,16 @@
 // ACTION TYPES;
 
-//All Employee
+//All campuses
 export const FETCH_ALL_EMPLOYEES = "FETCH_ALL_EMPLOYEES";
 
-//Single Employee
+//Single campus
 export const FETCH_EMPLOYEE = "FETCH_EMPLOYEE";
 
-//All Task
+//All students
 export const FETCH_ALL_TASKS = "FETCH_ALL_TASKS";
-export const ADD_TASK = "ADD_TASKS";
+export const ADD_TASK = "ADD_TASK";
 export const DELETE_TASK = "DELETE_TASK";
 export const EDIT_TASK = "EDIT_TASK";
 
-//Single Task
+//Single student
 export const FETCH_TASK = "FETCH_TASK";
