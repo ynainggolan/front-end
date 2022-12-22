@@ -1,24 +1,24 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {
-    fetchAllTasksThunk,
-    deleteTaskThunk
+
+import { 
+  fetchAllTasksThunk,
+  deleteTaskThunk
 } from '../../store/thunks';
 
-import AllTasksView from '../views/AllTasksView'
+import AllTasksView from '../views/AllTasksView';
 
-class AllTasksContiner extends Component {
-    componentDidMount(){
-        this.props.fetchAllTasks();
+class AllTasksContainer extends Component {
+    componentDidMount() {
+      this.props.fetchAllTasks();
     }
-
     render(){
         return(
             <div>
-                <AllTasksView
-                    tasks={this.props.allTasks}
-                    deleteTasks={this.props.deleteTask}
+                <AllTasksView 
+                  tasks={this.props.allTasks}
+                  deleteTask={this.props.deleteTask}   
                 />
             </div>
         )
@@ -27,17 +27,17 @@ class AllTasksContiner extends Component {
 
 // Map state to props;
 const mapState = (state) => {
-    return {
-        allTasks: state.allTasks,
-    };
+  return {
+    allTasks: state.allTasks,
+  };
 };
 
 // Map dispatch to props;
 const mapDispatch = (dispatch) => {
-    return {
-        fetchAllTasks: () => dispatch(fetchAllTasksThunk()),
-        deleteTask: (taskId) => dispatch(deleteTaskThunk(taskId)),
-    };
+  return {
+    fetchAllTasks: () => dispatch(fetchAllTasksThunk()),
+    deleteTask: (taskId) => dispatch(deleteTaskThunk(taskId)),
+  };
 };
 
-export default connect(mapState, mapDispatch)(AllTasksContiner);
+export default connect(mapState, mapDispatch)(AllTasksContainer);
