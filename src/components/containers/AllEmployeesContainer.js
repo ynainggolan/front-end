@@ -8,29 +8,30 @@ class AllEmployeesContainer extends Component {
   componentDidMount() {
     console.log(this.props);
     this.props.fetchAllEmployees();
-    }
+  }
 
-    render() {
-        return (
-          <AllEmployeesView
-            allEmployees={this.props.allEmployees}
-          />
-        );
-      }
+  render() {
+    console.log(this.props.allEmployees)
+    return (
+      <AllEmployeesView
+        allEmployees={this.props.allEmployees}
+      />
+    );
+  }
 }
 
 // Map state to props;
 const mapState = (state) => {
-    return {
-      allEmployees: state.allEmployees,
-    };
+  return {
+    allEmployees: state.allEmployees,
+  };
 };
 
 // Map dispatch to props;
 const mapDispatch = (dispatch) => {
-    return {
-      fetchAllEmployees: () => dispatch(fetchAllEmployeesThunk()),
-    };
+  return {
+    fetchAllEmployees: () => dispatch(fetchAllEmployeesThunk()),
+  };
 };
 
 // Type check props;
