@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 
 //Router
 import { Switch, Route } from "react-router-dom";
@@ -9,8 +9,8 @@ import {
   TaskContainer,
   AllEmployeesContainer,
   AllTasksContainer,
-  EditTaskContainer,
-  NewTaskContainer
+  NewTaskContainer,
+  EditTaskContainer
 } from './components/containers';
 
 // if you create separate components for adding/editing 
@@ -25,9 +25,9 @@ const App = () => {
         <Route exact path="/employees" component={AllEmployeesContainer} />
         <Route exact path="/employee/:id" component={EmployeeContainer} />
         <Route exact path="/tasks" component={AllTasksContainer} />
-        <Route exact path="/Task/:id" component={TaskContainer} />
         <Route exact path="/newtask" component={NewTaskContainer} />
-        <Route exact path="/editcourse/:id" component={EditCourseContainer} />
+        <Route exact path="/task/:id" component={TaskContainer} />
+        <Route exact path="/edittask/:id" component={EditTaskContainer} />
 
       </Switch>        
     </div>
@@ -35,3 +35,4 @@ const App = () => {
 }
 
 export default App;
+
