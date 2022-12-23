@@ -13,7 +13,7 @@ export const fetchAllEmployees = (employees) => {
   };
 };
 
-//Add task
+//Add employee
 export const addEmployee = (employee) => {
   return {
     type: at.ADD_EMPLOYEE,
@@ -21,7 +21,7 @@ export const addEmployee = (employee) => {
   };
 };
 
-//Delete task
+//Delete employee
 export const deleteTask = (employeeId) => {
   return {
     type: at.DELETE_EMPLOYEE,
