@@ -3,7 +3,11 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
-import { fetchEmployeeThunk, editEmployeeThunk, fetchAllTasksThunk  } from '../../store/thunks';
+import { 
+  fetchEmployeeThunk, 
+  editEmployeeThunk, 
+  fetchAllTasksThunk  
+} from '../../store/thunks';
 
 
 /*
@@ -43,8 +47,9 @@ class EditEmployeeContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          firstName: "", 
-          lastName: "",
+          firstname: "", 
+          lastname: "",
+          department: "",
           taskId: null, 
           redirect: false, 
           redirectId: null,
@@ -57,9 +62,10 @@ class EditEmployeeContainer extends Component {
         this.props.fetchEmployee(this.props.match.params.id);
         this.props.fetchTasks();
         this.setState({
-            firstName: this.props.task.firstName, 
-            lastName: this.props.task.lastName,
-            taskId: this.props.task.taskId, 
+            firstname: this.props.employee.firstname, 
+            lastname: this.props.employee.lastname,
+            department: this.props.employee.department,
+            taskId: this.props.employee.taskId, 
         });
       }
 
@@ -85,16 +91,17 @@ class EditEmployeeContainer extends Component {
     handleSubmit = event => {
         event.preventDefault();
         //implementing form validation
-        if (this.state.firstName === "" && this.state.lastName==="") {
+        if (this.state.firstname === "" && this.state.lastname==="") {
           this.setState({error: "Error: Name cannot be empty"});
           return;
         }
 
         //get new info for task from form input
         let employee = {
-            id: this.props.task.id,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            id: this.props.employee.id,
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            department: this.state.department,
             taskId: this.state.taskId
         };
         
@@ -127,11 +134,15 @@ class EditEmployeeContainer extends Component {
         <div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => this.handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
-            <input type="text" name="firstName" value={this.state.firstName || ''} placeholder={employee.firstName} onChange ={(e) => this.handleChange(e)}/>
+            <input type="text" name="firstname" value={this.state.firstname || ''} placeholder={employee.firstname} onChange ={(e) => this.handleChange(e)}/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
-            <input type="text" name="lastName" value={this.state.lastName || ''} placeholder={employee.lastName} onChange={(e) => this.handleChange(e)}/>
+            <input type="text" name="lastname" value={this.state.lastname || ''} placeholder={employee.lastname} onChange={(e) => this.handleChange(e)}/>
+            <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Department: </label>
+            <input type="text" name="department" value={this.state.department || ''} placeholder={employee.department} onChange={(e) => this.handleChange(e)}/>
             <br/>
 
             <select onChange={(e) => this.handleSelectChange(e)}>
@@ -157,7 +168,7 @@ class EditEmployeeContainer extends Component {
           {employee.taskId !== null ?
             <div> Current Task:  
             <Link to={`/task/${employee.taskId}`}>{employee.task.description}</Link>
-            <button onClick={async () => {await editEmployee({id:employee.id, taskId: null});  fetchTask(employee.id)}}>Unassign</button>
+            <button onClick={async () => {await editEmployee({id:employee.id, taskId: null});  fetchEmployee(employee.id)}}>Unassign</button>
             </div>
             : <div> No task currently assigned </div>
           }
@@ -169,7 +180,7 @@ class EditEmployeeContainer extends Component {
                 <Link to={`/task/${task.id}`}>
                   <h4>{task.description}</h4>
                 </Link>
-                <button onClick={async() => {await editEmployee({id:employee.id, taskId: task.id}); fetchTask(employee.id)}}>Assign this task</button>
+                <button onClick={async() => {await editEmployee({id:employee.id, taskId: task.id}); fetchEmployee(employee.id)}}>Assign this task</button>
             </div>
             )})
           }
