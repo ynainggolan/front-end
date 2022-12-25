@@ -13,6 +13,30 @@ export const fetchAllEmployees = (employees) => {
   };
 };
 
+//Add employee
+export const addEmployee = (employee) => {
+  return {
+    type: at.ADD_EMPLOYEE,
+    payload: employee,
+  };
+};
+
+//Delete employee
+export const deleteEmployee = (employeeId) => {
+  return {
+    type: at.DELETE_EMPLOYEE,
+    payload: employeeId,
+  };
+};
+
+//Edit employee
+export const editEmployee = (employee) => {
+  return {
+    type: at.EDIT_EMPLOYEE,
+    payload: employee,
+  };
+};
+
 //Single employee
 export const fetchEmployee = (employee) => {
   return {
