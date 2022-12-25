@@ -43,6 +43,7 @@ class EditTaskContainer extends Component {
         super(props);
         this.state = {
           description: "", 
+          priorityLevel: "",
           completionStatus: "",
           employeeId: null, 
           redirect: false, 
@@ -57,6 +58,7 @@ class EditTaskContainer extends Component {
         this.props.fetchEmployees();
         this.setState({
             description: this.props.task.description, 
+            priorityLevel: this.props.task.priorityLevel, 
             completionStatus: this.props.task.completionStatus,
             employeeId: this.props.task.employeeId, 
         });
@@ -93,6 +95,7 @@ class EditTaskContainer extends Component {
         let task = {
             id: this.props.task.id,
             description: this.state.description,
+            priorityLevel: this.props.task.priorityLevel, 
             completionStatus: this.state.completionStatus,
             employeeId: this.state.employeeId
         };
@@ -127,6 +130,10 @@ class EditTaskContainer extends Component {
         <form style={{textAlign: 'center'}} onSubmit={(e) => this.handleSubmit(e)}>
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
             <input type="text" name="description" value={this.state.description || ''} placeholder={task.description} onChange ={(e) => this.handleChange(e)}/>
+            <br/>
+
+            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Priority Level: </label>
+            <input type="text" name="priorityLevel" value={this.state.priorityLevel || ''} placeholder={task.priorityLevel} onChange ={(e) => this.handleChange(e)}/>
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>

@@ -14,6 +14,11 @@ const NewTaskView = (props) => {
             <input type="text" name="description" onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Priority Level: </label>
+            <input type="text" name="priorityLevel" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
   
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Completion Status: </label>
             <input type="text" name="completionStatus" onChange={(e) => handleChange(e)} />
